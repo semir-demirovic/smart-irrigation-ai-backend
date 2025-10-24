@@ -1,16 +1,39 @@
-# Smart Irrigation AI Backend
+#  Smart Irrigation AI Backend
 
-This project demonstrates how **AI and Python** can automate irrigation decisions
-based on **sensor data** and **weather forecasts**.
+## Overview
 
-Built with:
-- FastAPI (for API)
-- OpenAI API (AI-based decision)
-- OpenWeatherMap API (weather data)
-- Pandas for CSV sensor reading
+This project demonstrates how **AI** and **Python (FastAPI)** can automate irrigation decisions  
+based on **soil moisture sensor data** and **weather forecasts**.
 
-## Run locally
+It’s a small but realistic backend that connects **IoT + AI + Weather API**,  
+mimicking a real-world smart agriculture use case.
 
-```bash
-pip install -r requirements.txt
-uvicorn main:app --reload
+---
+
+## Tech Stack
+
+| Component | Description |
+|------------|--------------|
+| 🐍 Python 3.11 | Core language |
+| ⚡ FastAPI | REST backend |
+| ☁️ OpenWeatherMap API | Weather data |
+| 🤖 OpenAI API | AI-based decisions |
+| 📊 Pandas | Sensor data handling |
+| 🧱 dotenv | Config management |
+| 🔄 Uvicorn | Local development server |
+
+---
+
+## ⚙️ How It Works
+
+1. Reads the latest **soil moisture** value from a CSV file.
+2. Fetches **weather conditions** from OpenWeatherMap API.
+3. Sends both inputs to **OpenAI API** which decides if irrigation is needed.
+4. Returns a JSON response like this:
+
+```json
+{
+  "sensor_moisture": 38,
+  "weather": "Cloudy, 21°C",
+  "AI_decision": "YES - Soil is too dry, irrigation needed."
+}
