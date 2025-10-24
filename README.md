@@ -1,39 +1,48 @@
-#  Smart Irrigation AI Backend
+# 🌾 Smart Irrigation AI Backend
 
-## Overview
-
-This project demonstrates how **AI** and **Python (FastAPI)** can automate irrigation decisions  
-based on **soil moisture sensor data** and **weather forecasts**.
-
-It’s a small but realistic backend that connects **IoT + AI + Weather API**,  
-mimicking a real-world smart agriculture use case.
+### Intelligent Water Management System using Python, FastAPI & OpenAI
 
 ---
 
-## Tech Stack
+## 🧠 Overview
 
-| Component | Description |
-|------------|--------------|
-| 🐍 Python 3.11 | Core language |
-| ⚡ FastAPI | REST backend |
-| ☁️ OpenWeatherMap API | Weather data |
-| 🤖 OpenAI API | AI-based decisions |
-| 📊 Pandas | Sensor data handling |
-| 🧱 dotenv | Config management |
-| 🔄 Uvicorn | Local development server |
+Smart Irrigation AI Backend is a prototype system designed to automate agricultural irrigation using real-time sensor data, weather information, and simple AI-based decision logic.  
+The goal of the project is to **optimize water usage** and **reduce manual intervention** in crop management through automated decision-making.
+
+The system collects soil moisture readings from CSV files (or sensors), fetches live weather data via API, and makes irrigation decisions based on both factors.  
+A lightweight **FastAPI backend** exposes REST endpoints and can be easily extended for IoT or frontend integration.
 
 ---
 
-## ⚙️ How It Works
+## ⚙️ Tech Stack
 
-1. Reads the latest **soil moisture** value from a CSV file.
-2. Fetches **weather conditions** from OpenWeatherMap API.
-3. Sends both inputs to **OpenAI API** which decides if irrigation is needed.
-4. Returns a JSON response like this:
+- **Language:** Python 3.10+
+- **Framework:** FastAPI
+- **AI/Logic:** OpenAI GPT API (for intelligent irrigation reasoning)
+- **Data Handling:** CSV (Pandas)
+- **Weather API:** OpenWeatherMap
+- **Environment Variables:** python-dotenv
+- **Testing:** HTTP requests via FastAPI TestClient
 
-```json
-{
-  "sensor_moisture": 38,
-  "weather": "Cloudy, 21°C",
-  "AI_decision": "YES - Soil is too dry, irrigation needed."
-}
+---
+
+## 🚀 How It Works
+
+1. **Sensors Module (`sensors.py`)**  
+   - Reads real or simulated soil moisture data from `moisture.csv`.  
+   - Provides moisture values for AI decision-making.
+
+2. **Weather Module (`weather_service.py`)**  
+   - Fetches current weather data (temperature, humidity, rain probability) from the OpenWeatherMap API.
+
+3. **AI Decision Engine (`ai_decision.py`)**  
+   - Uses OpenAI GPT logic to combine moisture + weather data and decide whether irrigation is needed.
+
+4. **Main Backend (`main.py`)**  
+   - FastAPI endpoints for checking system status, current irrigation decision, and sensor simulation.  
+   - Can be expanded to handle IoT or MQTT sensor inputs.
+
+---
+
+## 🧩 Project Structure
+
