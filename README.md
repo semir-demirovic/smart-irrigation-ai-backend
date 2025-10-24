@@ -46,3 +46,105 @@ A lightweight **FastAPI backend** exposes REST endpoints and can be easily exten
 
 ## 🧩 Project Structure
 
+smart-irrigation-ai-backend/
+│
+├── sensors.py
+├── weather_service.py
+├── ai_decision.py
+├── main.py
+├── requirements.txt
+├── .env.example
+├── moisture.csv
+└── README.md
+
+
+---
+
+## ⚡ Run Locally
+Here's how to run the project locally, either in IntelliJ, VS Code, or the terminal:
+
+### 1️⃣ Clone repository
+```bash
+git clone https://github.com/semir-demirovic/smart-irrigation-ai-backend.git
+cd smart-irrigation-ai-backend
+
+2️⃣ Create a virtual environment
+
+The virtual environment is to install all Python libraries for this project only.
+
+python -m venv venv
+
+3️⃣ Activate it
+
+    Windows:
+
+venv\Scripts\activate
+
+Mac/Linux:
+
+    source venv/bin/activate
+
+4️⃣ Install dependencies
+
+All required libraries are in requirements.txt.
+
+pip install -r requirements.txt
+
+5️⃣ Create an .env file
+
+Copy .env.example → .env and enter your OpenWeatherMap API key:
+
+OPENWEATHER_API_KEY=here_your_api_key
+
+6️⃣ Start the application
+
+Start the backend server:
+
+uvicorn main:app --reload
+
+Open in browser:
+
+http://127.0.0.1:8000
+
+🧠 Example Decision Flow
+Soil Moisture	Rain Probability	Temperature	AI Decision
+30%	0%	23°C	Irrigate now
+65%	60%	18°C	No irrigation
+45%	10%	28°C	Wait and recheck
+🔮 Future Improvements
+
+    Integracija sa pravim IoT senzorima (ESP32/Arduino)
+
+    Prediktivna analiza vlage (AI model)
+
+    Frontend dashboard (React/Flutter)
+
+    Pohrana historijskih podataka (SQLite/PostgreSQL)
+
+    Automatski raspored zalijevanja po parcelama
+
+👨‍💻 Author
+
+Semir Demirović
+Backend & Java Developer | Automation & AI Enthusiast
+📍 Bosnia & Herzegovina
+
+🔗 [LinkedIn](https://www.linkedin.com/in/semir-demirovic/)
+
+🔗 [GitHub](https://github.com/semir-demirovic/)
+
+🪶 License
+
+This project is open-source and available under the MIT License.
+
+
+🌍 Acknowledgements
+
+FastAPI Documentation
+
+OpenWeatherMap API
+
+OpenAI Platform
+
+Pandas Library
+
