@@ -1,0 +1,10 @@
+smart-irrigation-ai-backend/
+│
+├── main.py
+├── sensors.py
+├── weather_service.py
+├── ai_decision.py
+├── requirements.txt
+├── .env.example
+├── moisture.csv
+└── README.md
