@@ -113,15 +113,15 @@ Soil Moisture	Rain Probability	Temperature	AI Decision
 45%	10%	28°C	Wait and recheck
 🔮 Future Improvements
 
-    Integracija sa pravim IoT senzorima (ESP32/Arduino)
+Integration with real IoT sensors (ESP32/Arduino)
 
-    Prediktivna analiza vlage (AI model)
+Predictive moisture analysis (AI model)
 
-    Frontend dashboard (React/Flutter)
+Frontend dashboard (React/Flutter)
 
-    Pohrana historijskih podataka (SQLite/PostgreSQL)
+Historical data storage (SQLite/PostgreSQL)
 
-    Automatski raspored zalijevanja po parcelama
+Automatic watering schedule per plot
 
 👨‍💻 Author
 
