@@ -1,10 +1,13 @@
 smart-irrigation-ai-backend/
 │
-├── main.py
-├── sensors.py
-├── weather_service.py
-├── ai_decision.py
-├── requirements.txt
-├── .env.example
-├── moisture.csv
-└── README.md
+├── main.py              # FastAPI application & API endpoints
+├── models.py            # SQLAlchemy relational database models
+├── database.py          # PostgreSQL connection & session management
+├── sensors.py           # Virtual hardware sensor simulation
+├── weather_service.py   # Open-Meteo API integration (Sarajevo)
+├── ai_decision.py       # OpenAI logic with graceful degradation
+├── docker-compose.yml   # PostgreSQL container orchestration
+├── requirements.txt     # Python dependencies (FastAPI, SQLAlchemy, etc.)
+├── .env                 # Environment variables (Private)
+├── .env.example         # Template for environment variables
+└── README.md            # Professional technical documentation

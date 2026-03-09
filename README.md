@@ -1,150 +1,75 @@
-# 🌾 Smart Irrigation AI Backend
+🌾 Smart Irrigation AI Backend
+Enterprise-Grade Water Management System (FastAPI, PostgreSQL, Docker & AI)
+🧠 Overview
+Smart Irrigation AI Backend is a robust, production-ready prototype designed to automate agricultural irrigation for a personal orchard.
+Moving beyond simple scripts, this system utilizes real-time weather data API integration, simulated hardware sensors, and an AI decision engine with built-in graceful degradation. All decisions and sensor readings are persisted in a Dockerized PostgreSQL database using a relational schema to manage different crops.
 
-### Intelligent Water Management System using Python, FastAPI & OpenAI
+🚀 Key Features & Engineering Highlights
+Resilient AI Logic: Uses OpenAI for intelligent decision-making, with automated fallback algorithms if the AI service goes offline.
 
----
+Zero-Key Weather Integration: Uses Open-Meteo API for real-time localization data for Sarajevo (no API keys required for local testing).
 
-## 🧠 Overview
+Relational Data Modeling: Implements a One-to-Many relationship between Crops (e.g., Apple Trees, Plum Trees) and Irrigation Logs.
 
-Smart Irrigation AI Backend is a prototype system designed to automate agricultural irrigation using real-time sensor data, weather information, and simple AI-based decision logic.  
-The goal of the project is to **optimize water usage** and **reduce manual intervention** in crop management through automated decision-making.
+Containerized Database: PostgreSQL database instantly deployable via Docker Compose for consistent environments.
 
-The system collects soil moisture readings from CSV files (or sensors), fetches live weather data via API, and makes irrigation decisions based on both factors.  
-A lightweight **FastAPI backend** exposes REST endpoints and can be easily extended for IoT or frontend integration.
+Clean Architecture: Strict separation of concerns across modules (sensors, weather_service, ai_decision, database, models).
 
----
+⚙️ Tech Stack
+Backend Framework: FastAPI / Python 3.10+
 
-## ⚙️ Tech Stack
+Database: PostgreSQL & SQLAlchemy (ORM)
 
-- **Language:** Python 3.10+
-- **Framework:** FastAPI
-- **AI/Logic:** OpenAI GPT API (for intelligent irrigation reasoning)
-- **Data Handling:** CSV (Pandas)
-- **Weather API:** OpenWeatherMap
-- **Environment Variables:** python-dotenv
-- **Testing:** HTTP requests via FastAPI TestClient
+Infrastructure: Docker & Docker Compose
 
----
+AI/Logic: OpenAI GPT API
 
-## 🚀 How It Works
+External Data: Open-Meteo API
 
-1. **Sensors Module (`sensors.py`)**  
-   - Reads real or simulated soil moisture data from `moisture.csv`.  
-   - Provides moisture values for AI decision-making.
+Data Handling: Pandas & SQLAlchemy Query Logic
 
-2. **Weather Module (`weather_service.py`)**  
-   - Fetches current weather data (temperature, humidity, rain probability) from the OpenWeatherMap API.
-
-3. **AI Decision Engine (`ai_decision.py`)**  
-   - Uses OpenAI GPT logic to combine moisture + weather data and decide whether irrigation is needed.
-
-4. **Main Backend (`main.py`)**  
-   - FastAPI endpoints for checking system status, current irrigation decision, and sensor simulation.  
-   - Can be expanded to handle IoT or MQTT sensor inputs.
-
----
-
-## 🧩 Project Structure
-
-smart-irrigation-ai-backend/
-│
-├── sensors.py
-├── weather_service.py
-├── ai_decision.py
-├── main.py
-├── requirements.txt
-├── .env.example
-├── moisture.csv
-└── README.md
-
-
----
-
-## ⚡ Run Locally
-Here's how to run the project locally, either in IntelliJ, VS Code, or the terminal:
-
-### 1️⃣ Clone repository
-```bash
+⚡ Quick Start (Run Locally)
+1️⃣ Clone the repository
+Bash
 git clone https://github.com/semir-demirovic/smart-irrigation-ai-backend.git
 cd smart-irrigation-ai-backend
+2️⃣ Start the PostgreSQL Database (via Docker)
+Ensure Docker is running on your machine, then execute:
 
-2️⃣ Create a virtual environment
-
-The virtual environment is to install all Python libraries for this project only.
-
+Bash
+docker-compose up -d
+3️⃣ Setup Python Environment
+Bash
 python -m venv venv
-
-3️⃣ Activate it
-
-    Windows:
-
-venv\Scripts\activate
-
-Mac/Linux:
-
-    source venv/bin/activate
-
-4️⃣ Install dependencies
-
-All required libraries are in requirements.txt.
-
+source venv/Scripts/activate # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-5️⃣ Create an .env file
-
-Copy .env.example → .env and enter your OpenWeatherMap API key:
-
-OPENWEATHER_API_KEY=here_your_api_key
-
-6️⃣ Start the application
-
-Start the backend server:
-
+4️⃣ Run the Application
+Bash
 uvicorn main:app --reload
+🛠 API Documentation & Testing
+FastAPI automatically generates interactive documentation. Access the Swagger UI to test the system:
+👉 http://127.0.0.1:8000/docs
 
-Open in browser:
+Core Endpoints:
+Trigger Irrigation Cycle: GET /irrigate/{crop_id}
 
-http://127.0.0.1:8000
+Example for Apples (ID 1): http://127.0.0.1:8000/irrigate/1
 
-🧠 Example Decision Flow
-Soil Moisture	Rain Probability	Temperature	AI Decision
-30%	0%	23°C	Irrigate now
-65%	60%	18°C	No irrigation
-45%	10%	28°C	Wait and recheck
-🔮 Future Improvements
+Example for Plums (ID 2): http://127.0.0.1:8000/irrigate/2
 
-Integration with real IoT sensors (ESP32/Arduino)
+View Database Logs: GET /logs (Retrieves the 10 most recent records)
 
-Predictive moisture analysis (AI model)
-
-Frontend dashboard (React/Flutter)
-
-Historical data storage (SQLite/PostgreSQL)
-
-Automatic watering schedule per plot
+Average Moisture Stats: GET /stats/{crop_id} (SQL aggregation example)
 
 👨‍💻 Author
+Semir Demirović Bachelor of Computer Science (BCompSc)
+Backend Developer | Automation & AI Enthusiast
 
-Semir Demirović
-Backend & Java Developer | Automation & AI Enthusiast
 📍 Bosnia & Herzegovina
 
-🔗 [LinkedIn](https://www.linkedin.com/in/semir-demirovic/)
+[🔗](https://www.linkedin.com/in/semir-demirovic/) LinkedIn Profile
 
-🔗 [GitHub](https://github.com/semir-demirovic/)
+[🔗](https://github.com/semir-demirovic/) GitHub Profile
 
 🪶 License
-
 This project is open-source and available under the MIT License.
-
-
-🌍 Acknowledgements
-
-FastAPI Documentation
-
-OpenWeatherMap API
-
-OpenAI Platform
-
-Pandas Library
-
