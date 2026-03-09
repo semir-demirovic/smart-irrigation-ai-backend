@@ -1,8 +1,15 @@
-fastapi
-uvicorn
-pandas
-requests
-python-dotenv
-openai
-sqlalchemy
-psycopg2-binary
+# Web Server & Framework
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+
+# Database & ORM
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.9
+
+# AI & Data Processing
+openai<1.0.0  # Zadržavamo verziju ispod 1.0 zbog tvoje trenutne sintakse u kodu
+pandas>=2.2.0
+requests>=2.31.0
+
+# Configuration
+python-dotenv>=1.0.1
