@@ -32,6 +32,7 @@ Data Handling: Pandas & SQLAlchemy Query Logic
 ⚡ Quick Start (Run Locally)
 
 1️⃣ Clone the repository
+
 Bash
 git clone https://github.com/semir-demirovic/smart-irrigation-ai-backend.git
 cd smart-irrigation-ai-backend
@@ -43,12 +44,14 @@ Bash
 docker-compose up -d
 
 3️⃣ Setup Python Environment
+
 Bash
 python -m venv venv
 source venv/Scripts/activate # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 4️⃣ Run the Application
+
 Bash
 uvicorn main:app --reload
 
