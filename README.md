@@ -34,25 +34,32 @@ Data Handling: Pandas & SQLAlchemy Query Logic
 1️⃣ Clone the repository
 
 Bash
+
 git clone https://github.com/semir-demirovic/smart-irrigation-ai-backend.git
+
 cd smart-irrigation-ai-backend
 
 2️⃣ Start the PostgreSQL Database (via Docker)
 Ensure Docker is running on your machine, then execute:
 
 Bash
+
 docker-compose up -d
 
 3️⃣ Setup Python Environment
 
 Bash
+
 python -m venv venv
+
 source venv/Scripts/activate # On Windows: venv\Scripts\activate
+
 pip install -r requirements.txt
 
 4️⃣ Run the Application
 
 Bash
+
 uvicorn main:app --reload
 
 🛠 API Documentation & Testing
